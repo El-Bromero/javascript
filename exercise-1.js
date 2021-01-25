@@ -4,8 +4,25 @@
         // Write a JavaScript function that iterates the integers from 1 to 100. For multiples of 3 print "TEK" instead of the number and for multiples of 5, print "camp." For numbers that are multiples of both 3 and 5, print "TEKcamp."
 
         //your code...
-        function tekCamp() {}
-        // tekCamp();
+        function tekCamp() {
+            for (let i = 1; i <= 100; i++)
+            {
+                output = "";
+                if (i % 3 == 0)
+                {
+                    output = "TEK";
+                }
+                if (i % 5 == 0)
+                {
+                    output += "camp";
+                }
+                if (output != "")
+                {
+                    console.log(output);
+                }
+            }
+        }
+        tekCamp(); // Was commented out...
 
 
 
@@ -13,23 +30,26 @@
         //Write a function that converts the current temperature from Fahrenheit to Celsius. 
 
         //your code...
-        function farenheitCelsius() {
-
+        function farenheitCelsius(F) {
+            // F to C formula: (F - 32) * 5/9 = C
+            return (F - 32) * 5/9;
         }
 
-
-
+        // Test Cases
+        // console.log(farenheitCelsius(32));
+        // console.log(farenheitCelsius(63));
 
         /************************************************************************************/
         //Write a function that converts the Celsius temperature back to Fahrenheit. 
 
         //your code...
-        function celsiusFarenheit() {
-
+        function celsiusFarenheit(C) {
+            // C to F formula: (C * 9/5) + 32 = F
+            return (C * 9/5) + 32;
         }
-
-
-
+        // Test Cases
+        // console.log(celsiusFarenheit(17.2));
+        // console.log(celsiusFarenheit(0));
 
 
         /************************************************************************************/
