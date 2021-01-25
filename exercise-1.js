@@ -22,7 +22,7 @@
                 }
             }
         }
-        tekCamp(); // Was commented out...
+        //tekCamp(); // Remove comment to test function out
 
 
 
@@ -57,27 +57,34 @@
 
         //your code...
         function canVote(age) {
+            if (age >= 18)
+            {
+                return true;
+            }
             return false;
         }
 
-
-
-
-
+        // Test Cases
+        // console.log(canVote(17));
+        // console.log(canVote(100));
 
 
         /************************************************************************************/
         // Write a function that converts a string to an array. It should return an array.  
 
         //your code...
-        function strToArr() {
-            return [];
+        function strToArr(str) {
+            let strToArray = [];
+            for (let i = 0; i < str.length; i++)
+            {
+                strToArray.push(String(str[i]));
+            }
+            return strToArray;
         }
 
-
-
-
-
+        // Test Cases
+        // console.log(strToArr("Teksystems"));
+        // console.log(strToArr("HelloTest123!?$"));
 
 
         /************************************************************************************/
@@ -85,11 +92,17 @@
 
         //your code...
         function reversePhone(number) {
-            
+            let reverseNum = "";
+            for (let i = number.length-1; i >= 0 ; i--)
+            {
+                reverseNum += number[i];
+            }
+            return reverseNum;
         }
 
-
-
+        // Test Cases
+        // console.log(reversePhone("123-456-7890"))
+        // console.log(reversePhone("0987654321"));
 
 
         /************************************************************************************/
