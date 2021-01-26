@@ -110,9 +110,14 @@
 
         //your code...
 
+        function carInfo(make, model, year, color) {
+            var car = {make:make, model:model, year:year, color:color};
+            return car;
+        }
 
-
-
+        // Test Cases
+        // console.log(carInfo("Toyota","Camry","2020","Red"));
+        // console.log(typeof(carInfo("","","","")));
 
 
         /************************************************************************************/
@@ -122,10 +127,25 @@
 
         //your code...
 
+        function evenOrOdd(numbers) {
+            let evenOddList = {};
+            for(let i = 0; i < numbers.length; i++) 
+            {
+                if(numbers[i] % 2 == 0)
+                {
+                    Object.assign(evenOddList, {[numbers[i]]: "even"});
+                }
+                else
+                {
+                    Object.assign(evenOddList, {[numbers[i]]: "odd"});
+                }
+            }
+            return evenOddList;
+        }
 
-
-
-
+        // Test Cases
+        // console.log(evenOrOdd([10,23,3,4]));
+        // console.log(evenOrOdd([2,4,3,5,8,7,6,100]));
 
 
         /************************************************************************************/
@@ -134,11 +154,20 @@
 
         //your code...
 
-
+        for(let i = 0; i < numbers.length; i++)
+        {
+            if(i % 3 == 0) // (Did numbers[i] % 3 == 0) before but its says 0th, 3rd, 6th, 9th... values
+            {
+                console.log(numbers[i]);
+            }
+        }
 
         /************************************************************************************/
         const foodArray = [ 'potatoes', 'tamales', 'lemon','strawberries','chocolate', 'pudding', {program : 'TEKcamp'} ];
         //access the value of the last element of the array and set it to a variable called school.  print the school variable to the console.
+
+        var school = foodArray[foodArray.length-1];
+        console.log(school);
 
         const adjectiveArray = [ 'salty', 'spicy', 'sour', 'sweet', 'rich','creamy','amazing'];
         // Using both the foodArray and the adjectiveArray, write "for" loop that console.log()'s a sentence for each corresponding value in the arrays. Add the word "is" or "are" depending on if the food is singular or plural.  i.e. "Potatoes are salty", "Lemon is sour".
@@ -148,13 +177,45 @@
         // Refactor the for() loop to be a while loop.
 
 
-        for(let i=0; i<10; i++) {
-            // console.log(" the value of i in the loop is : " + i);
+        // for(let i=0; i<10; i++) {
+        //     // console.log(" the value of i in the loop is : " + i);
+        // }
+        // This for loop turns into this while loop:
+        let i = 0;
+        while(i < 10)
+        {
+            //console.log(" the value of i in the loop is : " + i); // Commented this out since I didn't want his in the console 10 times
+            i++;
         }
-
 
         //your code...
 
+        for(let i = 0; i < foodArray.length; i++)
+        {
+            let value = foodArray[i];
+            if(typeof value === 'string')
+            {
+                if(value[value.length-1] === 's')
+                {
+                    console.log(value + " are " + adjectiveArray[i]);
+                }
+                else
+                {
+                    console.log(value + " is " + adjectiveArray[i]);
+                }
+            }
+            else if (typeof value === 'object')
+            {
+                if(value.program[value.program.length-1] === 's')
+                {
+                    console.log(value.program + " are " + adjectiveArray[i]);
+                }
+                else
+                {
+                    console.log(value.program + " is " + adjectiveArray[i]);
+                }
+            }
+        }
 
 
 
