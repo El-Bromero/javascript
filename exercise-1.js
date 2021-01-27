@@ -193,6 +193,7 @@
         for(let i = 0; i < foodArray.length; i++)
         {
             let value = foodArray[i];
+            // Check typeof element at index i. Check last character to see if it has 's' or not.
             if(typeof value === 'string')
             {
                 if(value[value.length-1] === 's')
@@ -224,7 +225,23 @@
         //use javascript to compute the value of the above statement. Each individual operation needs to be a function expression. run all the functions after defining them, and print the answer to the console.
 
         //your code...
-
+        function sum(a,b) {
+            return a + b;
+        }
+        function multiply(c,d) {
+            return c * d;
+        }
+        function divide(e,f) {
+            return e / f;
+        }
+        function power2(g) {
+            return g*g;
+        }
+        let answer = sum(30,2);
+        answer = multiply(answer,20);
+        answer = divide(answer,10);
+        answer = power2(answer);
+        console.log(answer);
 
         /************************************************************* */
         //Determine whether the following values are "truthy" or "falsy".  console.log() the value, whether the value is 'truthy' or 'falsy', along with your reasoning why using String interpolation values : 
@@ -232,18 +249,49 @@
         // ex : 3 is truthy, because it is a number, and numbers are type coerced as 'true' when performing logical (boolean) operations.
 
         // 20
-        // 0
-        // "zero";
-        // const zero = 20;
-        // null
-        // "0"
-        // !""
-        // {}
-        // () => {console.log("hello TEKcamp!");
-        // 125
-        // undefined
-        // ""
+        console.log("3 is truthy, because it is a number and non zero numbers are typed as 'true' in boolean operations");
 
+        // 0
+        console.log("0 is falsey, because 0 where it is 0 or -0 is seen as false in boolean operations");
+
+        // "zero";
+        console.log('"zero" is truthy, because it is a non empty string and non empty strings are typed as true in boolean operations');
+
+        // const zero = 20;
+        const zero = 20;
+        console.log("zero variable is truthy, because the value of the variable zero is a non zero number and non zero numbers are typed true in boolean operations");
+
+        // null
+        console.log("null is falsey, because it is absent of value so it is seen as typed false in boolean operations");
+
+        // "0"
+        console.log('"0" is truthy, because it is a non empty string and non empty strings are typed as true in boolean operations');
+
+        // !""
+        // if(${!""})
+        // {
+        //     console.log("yay");
+        // }
+        // else
+        // {
+        //     console.log("nay");
+        // }
+
+        // {}
+        console.log("{} is truthy, because ");
+
+        // () => {console.log("hello TEKcamp!");
+        // Seeing this function above it returns an error since it is missing a "}" but I am assuming the "}" is there for this answer
+        console.log('() => {console.log("hello TEKcamp!")}; is truthy, because ');
+
+        // 125
+        console.log("125 is truthy, because it is a number and non zero numbers are typed as 'true' in boolean operations");
+
+        // undefined
+        console.log("undefined is falsey, because ");
+
+        // ""
+        console.log('"" is falsey, because ');
 
 
 
@@ -252,20 +300,40 @@
 
         const day = "friday";
 
-        if(day === "monday") {
-            console.log("we got a long week ahead of us...");
-        } else if(day === "tuesday") {
-            console.log("tuesday's are still beterr than mondays, but LONG way to go still");
-        } else if (day === "wednesday") {
-            console.log("We are smack dab in the middle of the week");
-        } else if (day === "thursday") {
-            console.log("Thursday night... the mood is right");
-        } else if (day === "friday") {
-            console.log("TGIF.  Friday truly is the best day of the week!")
-        } else {
-            console.log("It's a weekend!")
-        }
+        // if(day === "monday") {
+        //     console.log("we got a long week ahead of us...");
+        // } else if(day === "tuesday") {
+        //     console.log("tuesday's are still beterr than mondays, but LONG way to go still");
+        // } else if (day === "wednesday") {
+        //     console.log("We are smack dab in the middle of the week");
+        // } else if (day === "thursday") {
+        //     console.log("Thursday night... the mood is right");
+        // } else if (day === "friday") {
+        //     console.log("TGIF.  Friday truly is the best day of the week!")
+        // } else {
+        //     console.log("It's a weekend!")
+        // }
 
+        switch(day)
+        {
+            case "monday":
+                console.log("we got a long week ahead of us...");
+                break;
+            case "tuesday":
+                console.log("tuesday's are still beterr than mondays, but LONG way to go still");
+                break;
+            case "wednesday":
+                console.log("We are smack dab in the middle of the week");
+                break;
+            case "thursday":
+                console.log("Thursday night... the mood is right");
+                break;
+            case "friday":
+                console.log("TGIF.  Friday truly is the best day of the week!")
+                break;
+            default:
+                console.log("It's a weekend!")
+        }
 
 
         /************************************************************* */
