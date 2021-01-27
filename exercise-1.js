@@ -249,7 +249,7 @@
         // ex : 3 is truthy, because it is a number, and numbers are type coerced as 'true' when performing logical (boolean) operations.
 
         // 20
-        console.log("3 is truthy, because it is a number and non zero numbers are typed as 'true' in boolean operations");
+        console.log("20 is truthy, because it is a number and non zero numbers are typed as 'true' in boolean operations");
 
         // 0
         console.log("0 is falsey, because 0 where it is 0 or -0 is seen as false in boolean operations");
@@ -268,30 +268,25 @@
         console.log('"0" is truthy, because it is a non empty string and non empty strings are typed as true in boolean operations');
 
         // !""
-        // if(${!""})
-        // {
-        //     console.log("yay");
-        // }
-        // else
-        // {
-        //     console.log("nay");
-        // }
+        //console.log(Boolean('${!""}'));
+        console.log('!"" is truthy, because "" is typed as falsey since it is empty and the ! operator is called "not" and reverses the boolean value. So the final value is truthy');
 
         // {}
-        console.log("{} is truthy, because ");
+        console.log("{} is truthy, because empty objects are considered to be typed as true");
 
         // () => {console.log("hello TEKcamp!");
+        //console.log(Boolean(() => {console.log("hello TEKcamp!")}));
         // Seeing this function above it returns an error since it is missing a "}" but I am assuming the "}" is there for this answer
-        console.log('() => {console.log("hello TEKcamp!")}; is truthy, because ');
+        console.log('() => {console.log("hello TEKcamp!")}; is truthy, because it is a function that is outputting to log a string. Functions, even empty functions are typed as truthy');
 
         // 125
         console.log("125 is truthy, because it is a number and non zero numbers are typed as 'true' in boolean operations");
 
         // undefined
-        console.log("undefined is falsey, because ");
+        console.log("undefined is falsey, because there is no value there or specifically a value is not assigned so it is seen as falsey");
 
         // ""
-        console.log('"" is falsey, because ');
+        console.log('"" is falsey, because empty strings are considered to be typed falsey');
 
 
 
