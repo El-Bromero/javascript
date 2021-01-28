@@ -22,7 +22,7 @@
                 }
             }
         }
-        //tekCamp(); // Remove comment to test function out
+        tekCamp(); // Remove comment to test function out
 
 
 
@@ -36,8 +36,8 @@
         }
 
         // Test Cases
-        // console.log(farenheitCelsius(32));
-        // console.log(farenheitCelsius(63));
+        console.log(farenheitCelsius(32));
+        console.log(farenheitCelsius(63));
 
         /************************************************************************************/
         //Write a function that converts the Celsius temperature back to Fahrenheit. 
@@ -48,8 +48,8 @@
             return (C * 9/5) + 32;
         }
         // Test Cases
-        // console.log(celsiusFarenheit(17.2));
-        // console.log(celsiusFarenheit(0));
+        console.log(celsiusFarenheit(17.2));
+        console.log(celsiusFarenheit(0));
 
 
         /************************************************************************************/
@@ -65,8 +65,8 @@
         }
 
         // Test Cases
-        // console.log(canVote(17));
-        // console.log(canVote(100));
+        console.log(canVote(17));
+        console.log(canVote(100));
 
 
         /************************************************************************************/
@@ -83,8 +83,8 @@
         }
 
         // Test Cases
-        // console.log(strToArr("Teksystems"));
-        // console.log(strToArr("HelloTest123!?$"));
+        console.log(strToArr("Teksystems"));
+        console.log(strToArr("HelloTest123!?$"));
 
 
         /************************************************************************************/
@@ -101,8 +101,8 @@
         }
 
         // Test Cases
-        // console.log(reversePhone("123-456-7890"))
-        // console.log(reversePhone("0987654321"));
+        console.log(reversePhone("123-456-7890"))
+        console.log(reversePhone("0987654321"));
 
 
         /************************************************************************************/
@@ -116,7 +116,7 @@
         }
 
         // Test Cases
-        // console.log(carInfo("Toyota","Camry","2020","Red"));
+        console.log(carInfo("Toyota","Camry","2020","Red"));
         // console.log(typeof(carInfo("","","","")));
 
 
@@ -144,8 +144,8 @@
         }
 
         // Test Cases
-        // console.log(evenOrOdd([10,23,3,4]));
-        // console.log(evenOrOdd([2,4,3,5,8,7,6,100]));
+        console.log(evenOrOdd([10,23,3,4]));
+        console.log(evenOrOdd([2,4,3,5,8,7,6,100]));
 
 
         /************************************************************************************/
@@ -542,10 +542,10 @@
         }
 
         // Test Cases
-        // console.log(chessCalc(['king','queen','pawn','pawn','pawn','bishop']));
+        console.log(chessCalc(['king','queen','pawn','pawn','pawn','bishop']));
         // console.log(chessCalc(['random', 'king']));
-        //console.log(chessCalc(['iPhone','queen','pawn']));
-        //console.log(chessCalc(['android']));
+        console.log(chessCalc(['iPhone','queen','pawn']));
+        console.log(chessCalc(['android']));
 
         /************************************************************* */
 
@@ -862,16 +862,33 @@
         //Add an example of the 5 primary JavaScript data types to the given mapObj.  The key is an example data type, and the value is the name of the data type.  An object data type has already been set as the 1st key / val pair.
 
         const mapObj = new Map();
-        mapObj.set({company : "TEKsystems"},"object");
+
+        const companyObj = {company : "TEKsystems"};
+        mapObj.set(companyObj, "object");
+        //mapObj.set({company : "TEKsystems"},"object");
+
+        // Set 4 other primary JS data types
+        mapObj.set(true, "boolean");
+        mapObj.set(1, "number");
+        mapObj.set("hello", "string");
+        mapObj.set(["hello"], "array");
+
 
         console.log(mapObj.has({company : "TEKsystems"}));
 
         //The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  Refactor the code `mapObj.set()`, so the code : `mapObj.has() returns true.  The goal is to successfully check and see if {company : "TEKsystems"} exists in the mapObj.
 
         //your code...
-
+        console.log("The above console.log() statement returns false because it is comparing a new object instead of the one in the map. It was looking at the reference of the object not the actual value");
+        
+        // Setting a variable which is accessed by value to the object makes it true in the has() method for the map
+        console.log(mapObj.has(companyObj));
 
         //loop through the mapObj and create a new array of only the data types, leaving out the example keys of the mapObj.  Use array methods to do this.  Example output : ['string',number','boolean',array','object']
+        // Make new array and use array from method to get each value from map
+        let dataTypeArray = [];
+        dataTypeArray = Array.from(mapObj.values());
+        console.log(dataTypeArray);
 
 
         /************************************************************* */
