@@ -762,22 +762,100 @@
 
         function maxNumber(numbers) {
             //your code...
+            // Go through each index and filter out anything that isn't a string or a number
+            numbersMixed.forEach(function(item, index) {
+                numbers = numbersMixed.filter(check => typeof check === 'string' || typeof check === 'number');
+            } )
+            // Go check for each string in filtered array. Use switch cases to turn literal number name to number type. Default parse to Int
+            numbers.forEach(function(item, index) {
+                if(typeof numbers[index] === 'string')
+                {
+                    switch (numbers[index])
+                    {
+                        case "zero":
+                            numbers[index] = 0;
+                            break;
+                        case "one":
+                            numbers[index] = 1;
+                            break;
+                        case "two":
+                            numbers[index] = 2;
+                            break;
+                        case "three":
+                            numbers[index] = 3;
+                            break;
+                        case "four":
+                            numbers[index] = 4;
+                            break;
+                        case "five":
+                            numbers[index] = 5;
+                            break;
+                        case "six":
+                            numbers[index] = 6;
+                            break;
+                        case "seven":
+                            numbers[index] = 7;
+                            break;
+                        case "eight":
+                            numbers[index] = 8;
+                            break;
+                        case "nine":
+                            numbers[index] = 9;
+                            break;
+                        default:
+                            numbers[index] = parseInt(numbers[index], 10);
+                    }
+                }
+            })
+            // Filter out the NaN that appears after parsing ints
+            numbers = numbers.filter(Boolean);
+            let maximunNumber = 0;
+            // Check each number in array and get max number
+            numbers.forEach(function(item, index) {
+                if(maximunNumber < numbers[index])
+                {
+                    maximunNumber = numbers[index];
+                }
+            } )
+            // Console log the max number
+            console.log("The maximum number in this array is: " + maximunNumber);
+            // Return numbers array since it is the filtered array with just numbers
+            return numbers;
         }
+
+        // Create maxNumArray to take in filtered array from function and so it can be used for next exercise
+        let maxNumArray = [];
+        maxNumArray = maxNumber(maxNumArray);
+
 
         //After the numbers array has been cleaned up to only have numbers in it, Write a function that sorts the modified numbers array.  Allow the function to sort the array in descending order as well.
 
         function sortNums(numbers,desc=false) {
             //your code...
+            // Sort by checking the values of each index and reverse if desc is passed as true. Else return the sorted (ascending order) array
+            numbers.sort((a,b) => (a > b) ? 1 : -1);;
+            if(desc)
+            {
+                return numbers.reverse();
+            }
+            return numbers;
         };
 
-
+        console.log("Sorted in descending order array: " + sortNums(maxNumArray, true));
 
         /************************************************************* */
         //Research a new feature of ES6+ and create an example of it's use case here.  Be sure to write comments explaining what the feature is and why it is useful.
 
 
             //your code...
-
+            // Getting this info from w3schools.com/js/js_es6.asp
+            // I am choosing the arrow functions. Arrow functions allows developer a short syntax when writing function expressions. You do not need keywords such as function and return. You do not even need curly brackets. This allows a faster way for developers to quickly write function expressions especially functions that are on the simpler side.
+            // Example
+            const arrowExample = (arrowExample, randomNumber) => arrowExample * randomNumber;
+            // Instead of:
+            const functionExample = function(functionExample, anotherRandomNumber) {
+                return functionExample * anotherRandomNumber;
+            }
 
 
         /************************************************************* */
@@ -800,30 +878,55 @@
         //Create 4 mathematical function expressions, add,subtract,multiply,divide.  put them in an array, and create a doMath() function that randomly selects one of the mathematical operations whenever it is invoked.  The doMath() function should print to the console the mathetmatical function that was carried out.  The doMath() function should return the computed value of any operation performed.
 
         // ex : 2,3 => doMath(2,3) => adding : 5
-        const operations = [];
-        function doMath(x,y) {};
+        // const operations = [];
+        // function doMath(x,y) {};
 
         //your code...
 
-        //operations[0] => x + y;
+        const adding = (x,y) => x + y;
+        const subtracting = (x,y) => x - y;
+        const multiplying = (x,y) => x * y;
+        const dividing = (x,y) => x / y;
+        const operations = [adding,subtracting,multiplying,dividing];
+
+        let randomIndex = operations[Math.floor(Math.random() * operations.length)];
+        function doMath(x,y) {
+            console.log(randomIndex.name + " : " + randomIndex(x,y));
+
+        };
+        doMath(2,3);
 
 
         /************************************************************* */
         //- Create a Higher Order Function called multiple(x) that takes a single parameter.  This HOF should return another function fn(y) that accepts another single parameter y.  This inner function should compute the product of it's parameter with the parameter passed into multiple.  Use this returned "first-class" function to compute triples of any given number.
 
         //your code...
-
+        function multiple(x) {
+            return function fn(y) {
+                return x * y;
+            }
+        };
+        console.log(multiple(3)(9));
 
         //- Write an outer function called stockGain that has cost basis (basis) as a parameter; declare a variable called message that holds " is how much the stock has increased".  Return an inner function with years (yrs) as a parameter and declare a variable for growth rate (r) of 5%. Console log your calculation.
 
         //your code
-
+        
+        function stockGain(basis) {
+            let message = " is how much the stock has increased";
+            return function inner(yrs) {
+                let growthRate = 0.05;
+                return basis * (growthRate * yrs) + message;
+            }
+        }
+        console.log(stockGain(5)(10));
 
         // Once finished, declare a variable called futureValue that holds your stockGain function and enter any amount for the cost basis and a number for the number of years.  Run the function returned by the higher order function to display the future value of the stock.  
 
         //your code...
 
-
+        let futureValue = stockGain(10)(20);
+        console.log(futureValue + " and is the future value of the stock");
 
 // DO NOT DELETE THIS EXPORT
 module.exports = {
