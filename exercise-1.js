@@ -471,8 +471,6 @@
         console.log(greaterFive);
 
 
-
-
         // Create an array of 20 randomly generated integers.  Calculate the sum of the elements in the array.
 
         //your code...
@@ -490,7 +488,10 @@
         const showNums = [12,22,33,44,55,66,77,88,99,101];
         //Print out the value of each number divided by 2.  There is no need to store the output in an array.
 
-
+        for (let i = 0; i < showNums.length; i++)
+        {
+            console.log(showNums[i]/2);
+        }
 
         /************************************************************* */
         /* Chess pieces have point values associated with them.  
@@ -505,20 +506,54 @@
         ['android'] => chessCalc() => null
 
         */
-
+        // Check for values of pieces. If not one of the specified pieces (or king) then it is null value
         function chessCalc(pieces) {
             //your code here
+            let sum = 0;
+            pieces.forEach(function(item, index) {
+                if (pieces[index] === 'pawn')
+                {
+                    sum+=1;
+                }
+                else if (pieces[index] === 'knight' || pieces[index] === 'bishop')
+                {
+                    sum+=3;
+                }
+                else if (pieces[index] === 'rook')
+                {
+                    sum+=5;
+                }
+                else if (pieces[index] === 'queen')
+                {
+                    sum+=9;
+                }
+                else
+                {
+                    sum+=null;
+                }
+                
+            } )
+            if(sum != 0)
+            {
+                    return sum;
+            }
+            // Return null if no value was found
+            return null;
         }
 
-
-
+        // Test Cases
+        // console.log(chessCalc(['king','queen','pawn','pawn','pawn','bishop']));
+        // console.log(chessCalc(['random', 'king']));
+        //console.log(chessCalc(['iPhone','queen','pawn']));
+        //console.log(chessCalc(['android']));
 
         /************************************************************* */
 
         const ones = [1,11,111,1111,11111,111111,1111111,11111111,111111111,1111111111];
         //reverse the array, without modifying / `mutating` the ones array.
 
-
+        const reversedOnes = ones.reverse();
+        console.log(reversedOnes);
 
         /************************************************************* */
         //create a function called performer(cb) that takes in a callback function and runs that callback function.  The function should return the output of the callback function.
