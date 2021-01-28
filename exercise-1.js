@@ -249,43 +249,53 @@
         // ex : 3 is truthy, because it is a number, and numbers are type coerced as 'true' when performing logical (boolean) operations.
 
         // 20
+        console.log(Boolean(20));
         console.log("20 is truthy, because it is a number and non zero numbers are typed as 'true' in boolean operations");
 
         // 0
+        console.log(Boolean(0));
         console.log("0 is falsey, because 0 where it is 0 or -0 is seen as false in boolean operations");
 
         // "zero";
+        console.log(Boolean("zero"));
         console.log('"zero" is truthy, because it is a non empty string and non empty strings are typed as true in boolean operations');
 
         // const zero = 20;
         const zero = 20;
+        console.log(Boolean(zero));
         console.log("zero variable is truthy, because the value of the variable zero is a non zero number and non zero numbers are typed true in boolean operations");
 
         // null
+        console.log(Boolean(null));
         console.log("null is falsey, because it is absent of value so it is seen as typed false in boolean operations");
 
         // "0"
+        console.log(Boolean("0"));
         console.log('"0" is truthy, because it is a non empty string and non empty strings are typed as true in boolean operations');
 
         // !""
-        //console.log(Boolean('${!""}'));
+        console.log(Boolean('${!""}'));
         console.log('!"" is truthy, because "" is typed as falsey since it is empty and the ! operator is called "not" and reverses the boolean value. So the final value is truthy');
 
         // {}
+        console.log(Boolean({}));
         console.log("{} is truthy, because empty objects are considered to be typed as true");
 
         // () => {console.log("hello TEKcamp!");
-        //console.log(Boolean(() => {console.log("hello TEKcamp!")}));
+        console.log(Boolean(() => {console.log("hello TEKcamp!")}));
         // Seeing this function above it returns an error since it is missing a "}" but I am assuming the "}" is there for this answer
         console.log('() => {console.log("hello TEKcamp!")}; is truthy, because it is a function that is outputting to log a string. Functions, even empty functions are typed as truthy');
 
         // 125
+        console.log(Boolean(125));
         console.log("125 is truthy, because it is a number and non zero numbers are typed as 'true' in boolean operations");
 
         // undefined
+        console.log(Boolean(undefined));
         console.log("undefined is falsey, because there is no value there or specifically a value is not assigned so it is seen as falsey");
 
         // ""
+        console.log(Boolean(""));
         console.log('"" is falsey, because empty strings are considered to be typed falsey');
 
 
@@ -335,19 +345,24 @@
         // Refactor the following statements to use ternary expressions:
 
         const age = 10;
-        if (age > 21) console.log("adult"); else {
-            console.log("minor");
-        }
+        // if (age > 21) console.log("adult"); else {
+        //     console.log("minor");
+        // }
 
-        if (age > 13 && age < 19) console.log('teen'); else {
-            console.log("not a teenager");
-        };
+        // if (age > 13 && age < 19) console.log('teen'); else {
+        //     console.log("not a teenager");
+        // };
 
-        if (age > 65) console.log("retired"); else {
-            console.log("still working...");
-        }
+        // if (age > 65) console.log("retired"); else {
+        //     console.log("still working...");
+        // }
 
+        (age > 21) ? console.log("adult") : console.log("minor");
 
+        (age > 13 && age < 19) ? console.log('teen') : console.log("not a teenager");
+
+        (age > 65) ? console.log("retired") : console.log("still working...");
+        
         /************************************************************* */
         //Create an object literal representing yourself.  Set it equal to a variable that appropriately describes the object.  Include the following properties:
         /*
@@ -366,7 +381,28 @@
 
         //your code...
 
+        let brandon = 
+        {
+            name: "Brandon Romero",
+            age: 22,
+            gender: "M",
+            healthy: "no",
+            hobbies: "Playing video games and hanging out with friends",
+            profession: "Programmer",
+            education : "BS in CS"
+        };
 
+        brandon.learn = function() {
+            console.log(this.name + " is learning JavaScript");
+        }
+
+        brandon.learn();
+
+        // Method using some property that exists on my object
+        brandon.work = function() {
+            console.log(this.name + " profession is a " + this.profession);
+        }
+        brandon.work();
 
         /************************************************************* */
 
@@ -381,23 +417,32 @@
 
 
             // 1.
-            if(year > 2000 && year < 2100) {
-                console.log("welcome to the 21st century");
-            }
+            // if(year > 2000 && year < 2100) {
+            //     console.log("welcome to the 21st century");
+            // }
             
+            (year > 2000 && year < 2100) ? console.log("welcome to the 21st century") : "" ;
+
             // 2.
-            for(let i=0; i<nums.length; i++) {
-                sum += nums[i];
-            }
+            // for(let i=0; i<nums.length; i++) {
+            //     sum += nums[i];
+            // }
+            // console.log(sum);
+            
+            sum = nums.reduce((total, amount) => total + amount);
             console.log(sum);
             
+            3.
+            // while(i < nums.length) {
+            //     doubled.push(nums[i]*2);
+            //     i++;
+            // }
             
-            // 3.
-            while(i < nums.length) {
-                doubled.push(nums[i]*2);
-                i++;
-            }
-            
+            // console.log(doubled);
+
+            nums.forEach(function(item, index) {
+                doubled[index] = item*2;
+            })
             console.log(doubled);
         }
 
@@ -410,8 +455,11 @@
 
         //your code...
 
-
-
+        let numsSquared = [];
+        nums.forEach(function(item, index) {
+            numsSquared[index] = item*item;
+        })
+        console.log(numsSquared);
 
 
         const fivePlus = [1,3,5,7,9,1,3,5,2,3,1,23,4,232,3,4,1,2,2,2,3,4,4,1,12,11,23,3,4,5];
@@ -419,7 +467,8 @@
 
         //your code...
 
-
+        let greaterFive = fivePlus.filter(five => five >= 5);
+        console.log(greaterFive);
 
 
 
@@ -428,8 +477,14 @@
 
         //your code...
 
+        let randomArray = [];
+        // Put random numbers from 0 to 9
+        for (let i = 0; i < 20; i++)
+        {
+            randomArray[i] = Math.floor(Math.random()*10);
+        }
 
-
+        console.log(randomArray);
 
 
         const showNums = [12,22,33,44,55,66,77,88,99,101];
@@ -652,6 +707,7 @@
 
         //your code...
 
+        //operations[0] => x + y;
 
 
         /************************************************************* */
