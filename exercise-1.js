@@ -558,9 +558,18 @@
         /************************************************************* */
         //create a function called performer(cb) that takes in a callback function and runs that callback function.  The function should return the output of the callback function.
 
+        // performer takes in callback function called afterPerformer in this case and runs it. Output is the 2 console logs from the 2 functions
         function performer(cb) {
-            //code goes here
+            //code goes 
+            console.log("This is from performer function!");
+            cb();
         }
+
+        function afterPerformer() {
+            console.log("This is from the function after performer function!");
+        }
+
+        performer(afterPerformer);
 
 
         /************************************************************* */
@@ -633,13 +642,24 @@
 
         //your code here...
 
-
+        devs.forEach(function(item, index) {
+            if(devs[index].age > 24)
+            {
+                console.log(devs[index].name + " is older than 24");
+            }
+        } )
 
         /************************** */  
         // Remove all people who are not developers (i.e. no tech stack)
 
         //your code here...
 
+        devs.forEach(function(item, index) {
+            if(devs[index].tech_stack === null)
+            {
+                console.log(devs[index].name + " is not a developer");
+            }
+        } )
 
 
         /************************** */  
@@ -647,39 +667,69 @@
 
         //your code here...
 
-
+        let totalAge = 0;
+        devs.forEach(function(item, index) {
+            totalAge+=devs[index].age;
+        } )
+        console.log("Total age of all the devs is " + totalAge);
 
         /************************** */  
         // Find all female devs
 
         //your code here...
 
+        devs.forEach(function(item, index) {
+            if(devs[index].gender === 'f' || devs[index].gender === 'F')
+            {
+                console.log(devs[index].name + " is a female dev");
+            }
+        } )
 
         /************************** */  
         // lowercase the genders of every dev
 
         //your code here...
 
-
+        devs.forEach(function(item, index) {
+            devs[index].gender = devs[index].gender.toLocaleLowerCase();
+            console.log(devs[index].name + " gender is " + devs[index].gender);
+        } )
 
         /************************** */  
         // Sort the developers by name
 
         //your code here
 
+        devs.sort((a,b) => (a.name > b.name) ? 1 : -1);
+        devs.forEach(function(item, index) {
+            console.log(devs[index].name + " is sorted based on name and is on index " + index);
+        } )
 
         /************************** */  
         // Sort the devs by age in descending order
 
         //your code here
 
-
+        // Sort array based on age and it is in ascending order. Do reverse function to sort on descending
+        devs.sort((a,b) => (a.age > b.age) ? 1 : -1);
+        devs.reverse();
+        devs.forEach(function(item, index) {
+            console.log(devs[index].name + " is sorted based on age in descending order and is aged " + devs[index].age);
+        } )
 
         /************************** */  
         // Sort the male coders by age
 
         //your code here
 
+        devs.sort((a,b) => (a.age > b.age) ? 1 : -1);
+        devs.forEach(function(item, index) {
+            if(devs[index].gender === 'm' || devs[index].gender === 'M')
+            {
+                console.log(devs[index].name + " is male and is sorted based on age in order and is aged " + devs[index].age);
+            }
+            
+        } )
 
         /************************** */  
         // For the list of devs, print out sentences including the name and tech stack of each dev, leaving out other information.  Example output is provided below : 
@@ -692,6 +742,19 @@
 
         //your code here
 
+        let addSpace = [];
+        devs.forEach(function(item, index) {
+            if(devs[index].tech_stack === null)
+            {
+                console.log(devs[index].name + " is not a developer");
+            }
+            else
+            {
+                // Adds space to tech_stack and adds ',' so that it is not squished together
+                addSpace = devs[index].tech_stack.join(', ');
+                console.log(devs[index].name + " specializes in " + addSpace);
+            }
+        } )
 
         /************************************************************* */
         // Write a function to find the maximum numerical value of the given array.  Get rid of any non numerical values.  Convert the strings that are numbers to an actual number data type.  ("one" => 1) ("1" => 1).  Use array methods to perform this task.  
