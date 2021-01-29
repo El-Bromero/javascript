@@ -13,8 +13,11 @@
 
     let inputValue = '';
     button.addEventListener('click', () => {
+        // From #3: inputValue gets current value of the input element
         inputValue = input.value;
+        // From #4: input element or the value of the input is set to empty string ''
         input.value = '';
+        // From #7: Text content of span is set from input value. Also added previous span.textContent in case multiple inputs want to be stored
         span.textContent = span.textContent + " " + inputValue;
         input.focus();
     })
@@ -40,9 +43,6 @@
     
     // 7. Set the text content of the span to the input element value you saved earlier, and the text content of the button to 'Delete'.
     
-    // let txt = document.createTextNode(inputValue);
-    // span.appendChild(txt);
-    //span.textContent = inputValue;
     newButton.textContent = 'Delete';
     
     // 8. Append the list item as a child of the list.
@@ -57,4 +57,4 @@
     
     
     // 10. Finally, use the focus() method to focus the input element ready for entering the next shopping list item.
-    // input.focus();
+    // input.focus(); was added to the input button event listener function above
